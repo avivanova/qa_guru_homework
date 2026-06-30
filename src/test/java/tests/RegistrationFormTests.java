@@ -18,14 +18,14 @@ public class RegistrationFormTests extends TestBase {
         $("#firstName").val("Александра");
         $("#lastName").val("Иванова");
         $("#userEmail").val("aleks@ivanova.com");
-        $("#gender-radio-2").selectRadio("Female");
+        $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").val("7123456789");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("March");
         $(".react-datepicker__year-select").selectOption("1996");
         $(".react-datepicker__day--015").click();
         $("#subjectsInput").val("chemistry").pressEnter();
-        $("#hobbiesWrapper").$("#hobbies-checkbox-2").click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("cat.jpg");
         $("#currentAddress").val("Haryana, Panipat, 5");
         $("#state").click();
@@ -55,7 +55,7 @@ public class RegistrationFormTests extends TestBase {
         $("#firstName").val("Александра");
         $("#lastName").val("Иванова");
         $("#userEmail").val("aleks@ivanova.com");
-        $("#gender-radio-2").selectRadio("Female");
+        $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").val("7123456789");
         $("#submit").click();
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));

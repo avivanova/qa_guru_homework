@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBase {
 
     @BeforeAll
-    static void beforeAll () {
+    static void setUp () {
         Configuration.browser = "chrome";
         //  Configuration.browserVersion = "144.0";
         Configuration.browserSize = "1920*1080";
@@ -18,7 +18,7 @@ public class TestBase {
         Configuration.timeout = 1000; // default 4000
     }
     @AfterEach
-    void afterEach () {
+    void tearDown () {
         closeWebDriver();
     }
 }
