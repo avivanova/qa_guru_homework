@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.selector.ByDeepShadow.cssSelector;
 import static java.nio.channels.Selector.open;
 
@@ -15,6 +16,12 @@ public class RegistrationFormTests extends TestBase {
     @Test
     void submitFullFormTest () {
         Selenide.open ("/automation-practice-form");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#firstName").val("Александра");
         $("#lastName").val("Иванова");
         $("#userEmail").val("aleks@ivanova.com");
